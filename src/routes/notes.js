@@ -7,7 +7,22 @@ router.get('/notes/add', (req, res) => {
 
 router.post('/notes/new-note', (req, res) => {
     const { title, description }= req.body;
-    res.send('ok');
+    const errors = [];
+    if(!title) {
+        errors.push({text: 'Please Write a Title'});
+    }
+    if (!description) {
+        error.push({text: 'Please Write a Description'});
+    }
+    if (errors.length > 0) {
+        res.render('notes/new-notes', {
+            errors,
+            title,
+            description
+        });
+    } else {
+        res.send('ok');
+    }
 });
 
 router.get('/notes', (req, res) => {

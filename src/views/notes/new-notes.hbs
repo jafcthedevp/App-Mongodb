@@ -1,3 +1,11 @@
+{{#if errors}}
+  <div class="alert alert-danger" role="alert">
+    {{#each errors}}
+      <p>{{this.text}}</p>
+    {{/each}}
+  </div>
+{{/if}}
+
 <div class="col-md-4 mx-auto">
   <div class="card">
     <div class="card-header bg-dark text-center">
